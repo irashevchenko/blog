@@ -1,0 +1,40 @@
+BODY {
+background: FloralWhite;
+}
+.box{
+width: 800px;
+height: 800px;
+border: 1px solid DarkKhaki;
+background: OldLace;
+position: absolute;
+left: 250px;
+}
+.oglavlenie {
+font-family: "Times New Roman", serif;
+font-size:18px;
+color:black;
+font-style:normal;
+
+}
+.ops{
+padding-left: 40px;
+font-size:18px;
+clear:both;
+}
+p {text-align:justify;
+font-size:18px;
+}
+.micro {
+font-size:18px;
+}
+.grey{
+color: grey;
+font-size: 17px;
+font-style: italic;
+font-weight: bold;
+}
+.link{
+color: grey; 
+font-size: 15px;
+}
+a:active {color: red; text-decoration:none;}
