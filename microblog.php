@@ -42,7 +42,7 @@ $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодиро�
             <td align="left"> <a class="link" href="#"> Добавить коментарий <a> </td>
         </tr>
     </table> <br>
-    <hr align="center" width="50%"><?php  var_dump($row);
+    <hr align="center" width="50%"><?php
     } mysqli_free_result($result);
 mysqli_close($mysqli);?>
 
