@@ -11,7 +11,7 @@ require_once ('Menu.php'); ?>
     <!--создаём страничку с микроблогами-->
 
     <?php
-    $mysqli = mysqli_connect("localhost", "root", "", "mydatabase");
+    $mysqli = mysqli_connect("localhost", "root", "", "blog");
 
 
 $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
