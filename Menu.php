@@ -1,4 +1,11 @@
 
+
+
+
+
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
     <?php
 
 
@@ -6,31 +13,24 @@
     $script1 = explode("/", $script);
     ?>
 
-<?php $menus = array();
-$menu1 = array('href'=> 'microblog.php', 'tittle'=> 'Микроблог');
+    <?php $menus = array();
+    $menu1 = array('href'=> 'microblog.php', 'tittle'=> 'Микроблог');
 
 
-$menu2= array('href' => 'articles.php','tittle' =>'Статьи');
+    $menu2= array('href' => 'articles.php','tittle' =>'Статьи');
 
 
-$menu3=array('href' => 'contact.php','tittle' => 'Контакты');
+    $menu3=array('href' => 'contact.php','tittle' => 'Контакты');
 
-$menus[] = $menu1;
-$menus[] = $menu2;
-$menus[] = $menu3;
-?>
-
-
-
-
-
+    $menus[] = $menu1;
+    $menus[] = $menu2;
+    $menus[] = $menu3;
+    ?>
 <html>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
 <head> <title>blog</title>
     <link rel="stylesheet" type="text/css" href="style33.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="This is my bloody exciting web page about air conditioners" />
+    <meta name="description" content="This is my first blog" />
 </head>
 
 <body>

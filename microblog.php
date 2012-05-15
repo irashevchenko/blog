@@ -2,12 +2,6 @@
 <?php
 require_once ('Menu.php'); ?>
 
-
-
-
-
-
-
     <!--создаём страничку с микроблогами-->
 
     <?php
@@ -22,7 +16,9 @@ $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодиро�
 
 
 
-    { ?><table class="micro" width="600" height="60" align="center" valign="top">
+
+    { ?>
+    <table class="micro" width="600" height="60" align="center" valign="top">
 
        <tr>
 

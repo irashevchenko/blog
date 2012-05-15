@@ -37,4 +37,7 @@ font-weight: bold;
 color: grey; 
 font-size: 15px;
 }
-a:active {color: red; text-decoration:none;}
+a:active {color: green; text-decoration:none;}
+
+.er {color: red;
+}
