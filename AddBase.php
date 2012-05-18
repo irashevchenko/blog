@@ -16,14 +16,11 @@
 echo '<form action="Forma_add.php"  method="post" >';?>
     <p> Ввести сообщение:</p>
 
-
-    <textarea name="message" cols="45" rows="5" value=""></textarea>
-
-
-
+    <textarea name="message" cols="80" rows="5" value=""></textarea>
 
 <?php
 echo "<input type='submit' name='dobavl' value='Add message'>";
+echo "<input type='reset' name='otmena'  value='Cancel' >";
 
 echo '</form>';
 ?>

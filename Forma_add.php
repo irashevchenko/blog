@@ -14,24 +14,35 @@
 
 
      <?php
+     var_dump($_GET['id']);
      session_start();
-    $message = $_POST['message'];
+     $message = $_POST['message'];
      $_SESSION['message'] = 'Текст сообщения не был введён! Введите его.';
 
 
-    $mysqli = mysqli_connect("localhost", "root", "", "blog");
-     $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
+     $mysqli = mysqli_connect("localhost", "root", "", "blog");
+   $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
+    $update = "UPDATE microblog SET `message`= '$message' where `id`='".$_GET['id']."'";
 
+     if ($_GET['id']!='')
+     {
 
-    if ($_POST['message']!="")
-{
-$result = "Insert into microblog (message, data) VALUES ('$message', NOW())";
+         $ups = mysqli_query($mysqli, $update);
 
- mysqli_query($mysqli, $result);
-    $result1 = "Select * from microblog";
-    mysqli_query($mysqli, $result1);
-    header( "Location:/blog/microblog.php");
-}
+         header( "Location:/blog/microblog.php");// но так как в переменной $message пустая ячейка, то сообщение редактируется и ставновится пустым
+     }
+
+     elseif ((empty($_GET['id'])) AND($_POST['message']!=""))
+     {
+         $result = "Insert into microblog (message, data) VALUES ('$message', NOW())";
+
+         mysqli_query($mysqli, $result);
+         $result1 = "Select * from microblog";
+
+         mysqli_query($mysqli, $result1);
+
+         header( "Location:/blog/microblog.php");
+     }
      else
      {
 
@@ -40,8 +51,10 @@ $result = "Insert into microblog (message, data) VALUES ('$message', NOW())";
 
 
      }
-mysqli_close($mysqli);
-?>
+
+     mysqli_close($mysqli);
+
+     ?>
     </body>
 
 </html>
