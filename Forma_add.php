@@ -8,8 +8,8 @@ session_start();
 $mysqli = mysqli_connect('localhost', 'root', '', 'blog') or die ("Не могу соединиться");
 $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
 
-
-
+if(isset($_SESSION['login']) AND isset($_SESSION['password']))
+{
     if (empty($_POST['id']))
     {
         $ins = "Insert into microblog (message, data) VALUES ('".$_POST['mess']."', NOW())";
@@ -31,7 +31,11 @@ if (empty($post)) {
     $_SESSION['message'] = 'Текст сообщения не был введён! Введите его.';
     header ("Location:/blog/AddBase.php");
 }
-
+}
+else
+{
+    header("Location:/blog/Control_form.php");
+}
 
 mysqli_close($mysqli);
 

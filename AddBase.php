@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $mysqli = mysqli_connect('localhost', 'root', '', 'blog') or die ("Не могу соединиться");
 $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
 

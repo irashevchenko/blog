@@ -2,9 +2,7 @@
 <?php
 require_once ('Menu.php'); ?>
 
-    <!--создаём страничку с микроблогами-->
-
-    <?php
+        <?php
 session_start();
 if(!isset($_SESSION['update'])) {
     $_SESSION['update'] = "";
@@ -12,10 +10,29 @@ if(!isset($_SESSION['update'])) {
 <i> <?php echo $_SESSION['update']; ?> </i>
 <?php unset($_SESSION['update']);
 }
-    $mysqli = mysqli_connect("localhost", "root", "", "blog");
 
 
+
+$mysqli = mysqli_connect('localhost', 'root', '', 'blog') or die ("Не могу соединиться");
 $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
+$result_cont=mysqli_query($mysqli, "SELECT * FROM `user`");
+$myrow = mysqli_fetch_array($result_cont);
+
+if(isset($_POST['login'])) {
+    if(strcmp($myrow['login'],$_POST['login'])==0) {
+        $_SESSION['login']=$_POST['login'];
+    }
+    else {!isset($_SESSION['login']);}
+}
+if(isset($_POST['password'])) {
+    if(strcmp($myrow['password'],$_POST['password'])==0) {
+        {$_SESSION['password'] = $_POST['password'];}
+    }
+    else {!isset($_SESSION['password']);}
+}
+var_dump($_SESSION['login']);
+var_dump($_SESSION['password']);
+
 $quantity = 1;
 $show_link = 3;
 $sperator = ' ';// разделитель ссылок
@@ -57,14 +74,14 @@ $num_result = mysqli_num_rows($result);
         </tr>
         <tr>
             <td align="left"> <a class="link" href="#">Добавить коментарий<a> </td>
-
-
+<?php
+    if(isset($_SESSION['password']) &&  isset($_SESSION['login'])) {?>
     <td aligh="left"> <a href="AddBase.php?id=<?php echo $row['id'];?>">Редактировать</a> </td>
 
 
 
     <td align="right">  <a onclick="return confirm('Are you sure you want to delete the record?')" href="del_microblog.php?id=<?php echo $row['id'];?>">Удалить</a> </td>
-
+        <?php } ?>
     </tr>
 
     </table> <br>

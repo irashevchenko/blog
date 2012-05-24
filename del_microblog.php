@@ -12,12 +12,16 @@
     </head>
     <body>
     <?php
+    session_start();
     $mysqli= mysqli_connect("Localhost", "root", "", "blog");
     $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
-
+    if ((isset($_SESSION['login'])) AND isset($_SESSION['password'])) {
     $del =  "delete from microblog where `id` = '".$_GET['id']."' ";
     mysqli_query($mysqli, $del);
-    header("Location:/blog/microblog.php");
+    header("Location:/blog/microblog.php");}
+    else {
+        header("Location:/blog/Control_form.php");
+    }
 
 
 
