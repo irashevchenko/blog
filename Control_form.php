@@ -22,6 +22,7 @@
         <label>Ваш пароль:<br></label>
         <input name="password" type="password">
         <input type="submit" name="submit" value="Enter">
+        <input type="hidden" name=""
     </p>
 
 </form>

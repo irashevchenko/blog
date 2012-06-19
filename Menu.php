@@ -1,5 +1,7 @@
 
+<?php session_start();
 
+?>
 
 
 
@@ -11,6 +13,7 @@
 
     $script = $_SERVER['SCRIPT_FILENAME'];
     $script1 = explode("/", $script);
+
     ?>
 
     <?php $menus = array();
@@ -34,6 +37,19 @@
 </head>
 
 <body>
+    <?php
+    $mysqli = mysqli_connect('localhost', 'root', '', 'blog') or die ("Не могу соединиться");
+    $query = mysqli_query($mysqli, "SET NAMES 'utf8'"); //Задаем кодировку
+    $result_cont=mysqli_query($mysqli, "SELECT * FROM `user`");
+    $myrow = mysqli_fetch_array($result_cont);
+
+if (isset($_SESSION['login']) && isset($_SESSION['password']))
+{
+ ?> <a onclick="return confirm('Are you sure you want to exit the blog?')" href="exit.php">Выход</a>
+<a onclick="return confirm('Are you sure you want to change the login/password?')" href="Change_form.php?id=<?php echo $myrow['id']?>">Изменить логин/пароль</a>
+    <?php
+
+} ?>
 <div class="box">
     <table class="oglavlenie" width="400" height="60" align="right">
          <tr><?php foreach($menus as $index => $value) {?>
